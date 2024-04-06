@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 //用户的所有信息
 
 const ModuleUser = {
@@ -54,7 +54,7 @@ const ModuleUser = {
                 success(resp) {
                     const { access, refresh } = resp;
                     //解码
-                    const access_obj = jwt_decode(access);
+                    const access_obj = jwtDecode(access);
 
                     //一个周期函数使得token过期的时候每隔五分钟更新
                     setInterval(() => {
